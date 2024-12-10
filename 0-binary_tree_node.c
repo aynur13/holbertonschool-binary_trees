@@ -2,32 +2,25 @@
 #include "binary_trees.h"
 
 /**
-* binary_tree_node - Yeni bir ikili ağac düyünü yaradır
-* @parent: Atası olan düyün
-* @value: Düyünün saxlayacağı dəyər
+* binary_tree_node - Creates a binary tree node.
+* @parent: A pointer to the parent of the node to create.
+* @value: The value to put in the new node.
 *
-* Return: Yeni yaradılmış düyün (və ya NULL əgər yaddaş ayrılmadısa)
+* Return: If an error occurs - NULL.
+*         Otherwise - a pointer to the new node.
 */
+
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-    // Yeni düyün üçün yaddaş ayırırıq
-    binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
+	binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
 
-    // Yaddaş ayrılmadısa NULL qaytarırıq
-    if (!new_node)
-        return (NULL);
+	if (!new_node)
+		return (NULL);
 
-    // Yeni düyünə dəyəri təyin edirik
-    new_node->n = value;
-    
-    // Sol və sağ uşaqlar NULL olacaq
-    new_node->left = NULL;
-    new_node->right = NULL;
-    
-    // Atanı təyin edirik (əgər varsa)
-    new_node->parent = parent;
+	new_node->n = value;
+	new_node->parent = parent;
+	new_node->left = NULL;
+	new_node->right = NULL;
 
-    // Yeni yaradılan düyünü qaytarırıq
-    return (new_node);
+	return (new_node);
 }
-
